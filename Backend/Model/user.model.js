@@ -1,21 +1,24 @@
-const  mongoose = require("mongoose");
+let mongoose=require("mongoose")
 
-const userschema = mongoose.Schema({
-  gender: String,
-  email: String,
-  phone:String,
-  name: {
-    title: String,
-    first: String,
-    last: String,
-  },
-  dob: {
-    date: String,
-    age: Number
- },
-  
-});
+let userschema=mongoose.Schema({
+    gender:String,
+    picture: {
+        large: String,
+        medium:String,
+        thumbnail: String
+      },
+      email:String,
+      location:{
+        city:String,
+        state:String,
+        country:String
+      },
+      dob:{date:String,age:Number},
+      registered:{date:String,age:Number},
+      nat:String
+      
+})
 
-const usermodel = mongoose.model("user", userschema);
+let usermodel=mongoose.model("user",userschema)
 
-module.exports =  usermodel ;
+module.exports={usermodel}
